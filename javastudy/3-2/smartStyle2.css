@@ -1,0 +1,199 @@
+
+body{
+    width:100%;
+}
+.wrapper{
+    width:400px;
+    margin:0 auto;
+}
+.header{
+    height: 100px;
+    background-color:#141f40;
+}
+
+.side{
+    float:left;
+    height:250px;
+    width:150px;
+    background-color:#80bfa8;
+}
+
+.content-top-right{
+    float:right;
+    height:150px;
+    width:100px;
+    background-color:#ff9e6b;
+}
+
+.content{
+    float:right;
+    width:250px;
+    height:250px;
+}
+
+.content-top-left{
+    float:left;
+    width:150px;
+    height:150px;
+}
+
+.content-top-left-top{
+    height:50px;
+    background-color:#dbd400;
+}
+
+.content-top-left-bottom{
+    height:100px;
+    background-color:#0093b7;
+}
+
+
+.content-bottom{
+    height:100px;
+    background-color:#8c2727;
+}
+
+
+.footer{
+    height: 100px;
+    background-color:#d98d30;
+
+}
+
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+    height:0;
+    visibility: hidden;
+}
+
+
+
+@media screen and (max-width:767px){
+
+    .header{
+
+        width:300px 
+    }
+
+    .side{
+        
+        width:100px;
+    }
+
+    .content-top-left-top{
+
+        width:125px;
+
+    }
+
+    .content-top-left-bottom{
+
+        width:125px;
+    }
+
+    .content-bottom{
+
+        width:200px;
+    }
+
+    .content-top-right{
+
+        width:75px;
+
+    }
+
+    .footer{
+
+        width:300px;
+    }
+
+    }
+
+@media screen and (max-width:479px){
+
+    .main{
+        height:450px ;
+    }
+
+    .content{float:none;
+    
+    }
+
+    .contents {
+        max-width: 1000px; 
+        width: 100%; 
+        margin-left: auto; 
+        margin-right: auto; 
+        }
+
+     .header{
+
+    width:150px;
+    
+    height:100px;
+
+     }
+
+     .side{
+
+    width:150px;
+
+    height:100px;
+     }
+
+    .content-top-right{
+
+    width: 150px;
+
+    height:100px;
+
+    float: left;
+
+     }  
+
+     .content-bottom{
+
+    width:150px;
+
+    height: 100px;
+     }
+
+    .content-top-left-top{
+
+    width:150px;
+
+    height:50px;
+
+    }
+
+    .content-top-left-bottom{
+
+    width:150px;
+
+    height:100px;
+
+    }
+
+    .footer{
+
+    width:150px;
+
+    height:100px;
+
+    }
+
+
+
+     
+     }
+
+
+
+
+
+
+
+   
+      
