@@ -11,12 +11,12 @@ package study;
           
           
          
-         System.out.println("plusメソッドの引数が2つの場合:"+ super.plus(15+14));
+         System.out.println("plusメソッドの引数が2つの場合:"+ super.plus(15,15));
          
           
           
          
-           System.out.println("plusメソッドの引数が３つの場合:"+super.plus(25+35+39));
+           System.out.println("plusメソッドの引数が３つの場合:"+super.plus(25,35,40));
          
         		   
         	 }
