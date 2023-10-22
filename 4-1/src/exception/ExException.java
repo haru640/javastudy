@@ -12,9 +12,9 @@ import java.util.Scanner;
  * コンソールへ必要なパラメーター入力し、Enterを押下して実装結果を確認していきましょう！
  *
  */
-   public class EXException {
+public class ExException {
 
-    // 定数（条件）
+ // 定数（条件）
     private static final int CONST_EXCEPTION_TRIGER_NULL = 1;
     private static final int CONST_EXCEPTION_TRIGER_ARRAY_OUT_OF_BOUNDS = 2;
     private static final int CONST_EXCEPTION_TRIGER_CAST = 3;
@@ -102,9 +102,9 @@ import java.util.Scanner;
                 }
                 } while (true);
 
-       // 終了処理
-        sc.close();
-        System.out.println("お疲れ様でした！");
+              // 終了処理
+               sc.close();
+               System.out.println("お疲れ様でした！");
     
 
    
@@ -117,8 +117,9 @@ import java.util.Scanner;
      * ルール1: private static void 任意のメソッド名 throws 上位へ投げるExceptionクラス名 { NullPointerExceptionを発生させる処理 }
      * ルール2: 例外発生時に設定するメッセージは、定義済みの定数から適当なものを指定してください。
      */
-    // ここへ記述　
-            throw new EXException();
+    // ここへ記述　‹
+            throw new NullPointerException();
+            }
             private static void NullPointerException() throws NullPointerException  {
             NullPointerException  NullPointerException =new  NullPointerException ("CONST_MSG_NULLPO");
             }
