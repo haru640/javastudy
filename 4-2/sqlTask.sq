@@ -19,7 +19,7 @@ FROM
 INNER JOIN
  goods_table
 ON
- stock_table.update_day= goods_table.update_day
+ stock_table.goods_code =goods_table.goods_code
 INNER JOIN
  store_table
 ON
