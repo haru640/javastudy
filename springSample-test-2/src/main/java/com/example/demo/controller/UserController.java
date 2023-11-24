@@ -1,37 +1,35 @@
 package com.example.demo.controller;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
-
+/**
+ * ユーザー情報 Controller
+ */
 @Controller
 public class UserController {
- 
-  
-@Autowired
-private UserService userService; 
+  /**
+   * ユーザー情報 Service
+   */
+  //2行追加
+	@Autowired
+	private UserService userService;
+  /**
+   * ユーザー情報一覧画面を表示
+   * @param  model Model
+   * @return  ユーザー情報一覧画面のHTML
+   */
+  @RequestMapping("/user/list")
+	public String displayList(Model model) {
 
-   
-@GetMapping
-public String displayList(@PathVariable  int id,Model model) {
-List<UserEntity> userList = userService.searchAll(); 
-model.addAttribute("users", userList); 
-return "user/list";
- 
+    //3行追加
+	  List<User> userList = userService.getAllUsers(); // Change this according to your service method
+	  model.addAttribute("users", userList);
+	  return "user/list"; // Assuming that "user/list" is the correct HTML template pat
+
+
+
+  }
 }
-
-@GetMapping("/")
-public String displayList() {
-return "Hello";
- 
-}
-
-}
-
-
