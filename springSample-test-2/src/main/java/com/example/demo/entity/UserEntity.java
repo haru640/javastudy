@@ -7,13 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
 /**
  * ユーザー情報 Entity
  */
-  
-@Entity 
-
+@Data
+@Table (name = "user" , schema = "public")
+@Entity
  public class UserEntity  {
 
 	/**
