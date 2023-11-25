@@ -28,4 +28,10 @@ public List<UserEntity> searchAll() {
 	return userRepository.findAll(); 
 	
 }
+
+
+public List<UserEntity> getAllUsers() {
+	// TODO 自動生成されたメソッド・スタブ
+	return null;
+}
 }

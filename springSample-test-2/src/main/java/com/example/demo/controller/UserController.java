@@ -1,9 +1,12 @@
 package com.example.demo.controller;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 /**
  * ユーザー情報 Controller
@@ -18,14 +21,14 @@ public class UserController {
 	private UserService userService;
   /**
    * ユーザー情報一覧画面を表示
-   * @param  model Model
+   * ram  model Model
    * @return  ユーザー情報一覧画面のHTML
    */
-  @RequestMapping("/user/list")
+  @GetMapping("/user/list")
 	public String displayList(Model model) {
 
     //3行追加
-	  List<User> userList = userService.getAllUsers(); // Change this according to your service method
+	  List<UserEntity> userList = userService.getAllUsers(); // Change this according to your service method
 	  model.addAttribute("users", userList);
 	  return "user/list"; // Assuming that "user/list" is the correct HTML template pat
 
