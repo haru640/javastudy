@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
+
 /**
  * ユーザー情報 Controller
  */
@@ -21,16 +22,17 @@ public class UserController {
 	private UserService userService;
   /**
    * ユーザー情報一覧画面を表示
-   * ram  model Model
-   * @return  ユーザー情報一覧画面のHTML
+   * ＠param  model Model
+   * @return  
+   * ユーザー情報一覧画面のHTML
    */
-  @GetMapping("/user/list")
+	@GetMapping("/user/list")
 	public String displayList(Model model) {
 
     //3行追加
-	  List<UserEntity> userList = userService.getAllUsers(); // Change this according to your service method
-	  model.addAttribute("users", userList);
-	  return "user/list"; // Assuming that "user/list" is the correct HTML template pat
+	  List<UserEntity> userList = userService.searchAll(); // Change this according to your service method
+	  model.addAttribute("userlist", userList);
+	  return "userlist"; // Assuming that "user/list" is the correct HTML template pat
 
 
 

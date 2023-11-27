@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.UserEntity;
 
+
 /**
  * ユーザー情報 Repository
  */
