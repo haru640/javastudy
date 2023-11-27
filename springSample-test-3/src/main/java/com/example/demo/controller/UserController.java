@@ -31,8 +31,8 @@ public class UserController {
 
     //3行追加
 	  List<UserEntity> userList = userService.searchAll(); // Change this according to your service method
-	  model.addAttribute("userlist", userList);
-	  return "userlist"; // Assuming that "user/list" is the correct HTML template pat
+	  model.addAttribute("user/list", userList);
+	  return "user/list"; // Assuming that "user/list" is the correct HTML template pat
 
 
 
