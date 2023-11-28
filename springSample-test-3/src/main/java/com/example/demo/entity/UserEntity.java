@@ -27,7 +27,7 @@ import lombok.Data;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	
 	//2行追加
 	/**
