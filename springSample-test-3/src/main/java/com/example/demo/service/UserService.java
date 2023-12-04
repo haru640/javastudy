@@ -1,7 +1,11 @@
 package com.example.demo.service;
 
+import java.sql.Date;
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.AliasRequest;
+
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,9 +33,29 @@ public List<UserEntity> searchAll() {
 	
 }
 
-
-public List<UserEntity> getAllUsers() {
-	// TODO 自動生成されたメソッド・スタブ
+/**
+ * ユーザー情報 主キー検索
+ * @param
+ * @return  検索結果
+ */public UserEntity findById(Integer id) {
 	return null;
+		//実装1行
+	}
+
+	
+
+
+    public void create(AliasRequest userRequest) {
+	// TODO 自動生成されたメソッド・スタブ
+	Date now = new Date();
+	User user = new User();
+	
+	user.setName(userRequest.getName());
+    user.setAddress(userRequest.getAddress());
+    
+	user.setPhone(userRequest.getPhone());
+	user.setCreateDate(now);
+	user.setUpdateDate(now);
+	userRepository.save(user);
 }
 }
