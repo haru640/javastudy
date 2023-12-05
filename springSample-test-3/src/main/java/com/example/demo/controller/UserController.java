@@ -40,8 +40,8 @@ public class UserController {
 	public String displayList(Model model) {
 
     //3行追加
-	  List<UserEntity> userList = userService.searchAll(); // Change this according to your service method
-	  model.addAttribute("userlist", userList);
+	  List<UserEntity> userlist = userService.searchAll(); // Change this according to your service method
+	  model.addAttribute("userlist", userlist);
 	  return "user/list"; // Assuming that "user/list" is the correct HTML template pat
       }
 	
@@ -52,7 +52,7 @@ public class UserController {
 	 */
 	@GetMapping("/user/add")
 	public String displayAdd(Model model) {
-    model.addAttribute("userRequest", new Object());
+    model.addAttribute("userRequest","newUserRequest");
 		//一行追加
 	return "user/add";
 	}
@@ -94,7 +94,7 @@ public class UserController {
 	 * @return  ユーザー情報詳細画面
 	 */
 	@GetMapping("/user/{id}")
-	public String displayView(@PathVariable  String id, Model model) {
+	public String displayView(@PathVariable Integer  id, Model model) {
 		return "user/view";
 
 	}
