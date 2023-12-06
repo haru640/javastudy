@@ -1,15 +1,13 @@
 package com.example.demo.service;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.AliasRequest;
-
-import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.UserRequest;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
 
@@ -38,17 +36,20 @@ public List<UserEntity> searchAll() {
  * @param
  * @return  検索結果
  */public UserEntity findById(Integer id) {
-	return null;
+	 return null;
 		//実装1行
-	}
+ }
 
 	
+ /**
+	 * ユーザー情報 新規登録
+	 * @param  user ユーザー情報
+	 */
 
-
-    public void create(AliasRequest userRequest) {
+    public void create(UserRequest userRequest) {
 	// TODO 自動生成されたメソッド・スタブ
 	Date now = new Date();
-	User user = new User();
+	UserEntity user = new UserEntity();
 	
 	user.setName(userRequest.getName());
     user.setAddress(userRequest.getAddress());
@@ -59,3 +60,4 @@ public List<UserEntity> searchAll() {
 	userRepository.save(user);
 }
 }
+
