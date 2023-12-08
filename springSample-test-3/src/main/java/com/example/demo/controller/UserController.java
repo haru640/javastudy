@@ -2,8 +2,6 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.AliasRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.stereotype.Controller;
@@ -65,7 +63,7 @@ public class UserController {
 	 * @return  ユーザー情報一覧画面
 	 */
 	@GetMapping("/user/create")
-	public String create(@Validated @ModelAttribute AliasRequest userRequest, BindingResult result, 
+	public String create(@Validated @ModelAttribute UserRequest userRequest, BindingResult result, 
 	Model model) {
 	
 		
@@ -73,7 +71,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			
 		List<String>errorList=new ArrayList<String>();
-		for (ObjectError error:result.getAllErrors());{
+		for (@SuppressWarnings("unused") ObjectError error:result.getAllErrors());{
 		errorList.add(error.getDefaultMessage());
 	      }
 			// 入力チェックエラーの場合3行実装

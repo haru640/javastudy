@@ -39,12 +39,10 @@ public List<UserEntity> searchAll() {
 	 return null;
 		//実装1行
  }
+	
 
 	
- /**
-	 * ユーザー情報 新規登録
-	 * @param  user ユーザー情報
-	 */
+
 
     public void create(UserRequest userRequest) {
 	// TODO 自動生成されたメソッド・スタブ
