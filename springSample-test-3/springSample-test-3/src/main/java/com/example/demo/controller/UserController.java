@@ -2,8 +2,6 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.AliasRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.stereotype.Controller;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.demo.dto.UserRequest;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 
@@ -40,8 +39,8 @@ public class UserController {
 	public String displayList(Model model) {
 
     //3行追加
-	  List<UserEntity> userist = userService.searchAll(); // Change this according to your service method
-	  model.addAttribute("userlist", userList);
+	  List<UserEntity> userlist = userService.searchAll(); // Change this according to your service method
+	  model.addAttribute("userlist", userlist);
 	  return "user/list"; // Assuming that "user/list" is the correct HTML template pat
       }
 	
@@ -52,7 +51,7 @@ public class UserController {
 	 */
 	@GetMapping("/user/add")
 	public String displayAdd(Model model) {
-    model.addAttribute("userRequest","newUserRequest");
+	model.addAttribute("userRequest", new UserRequest());
 		//一行追加
 	return "user/add";
 	}
@@ -64,7 +63,7 @@ public class UserController {
 	 * @return  ユーザー情報一覧画面
 	 */
 	@GetMapping("/user/create")
-	public String create(@Validated @ModelAttribute AliasRequest userRequest, BindingResult result, 
+	public String create(@Validated @ModelAttribute UserRequest userRequest, BindingResult result, 
 	Model model) {
 	
 		
@@ -79,11 +78,11 @@ public class UserController {
     
 //エラー判定後の画面遷移2行実装
 		model.addAttribute("validationError",error);
-		return"redirect:/user/list";
+		return"user/add";
 		}
 		// ユーザー情報の登録2行実装
 		 userService.create(userRequest);
-         return"user/add";
+		 return"redirect:/user/list";
          
          }
 	
