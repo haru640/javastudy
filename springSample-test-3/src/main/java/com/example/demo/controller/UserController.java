@@ -13,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.UserRequest;
 import com.example.demo.entity.UserEntity;
@@ -23,7 +24,7 @@ import com.example.demo.service.UserService;
  */
 @Controller
 public class UserController {
-	private static final DefaultMessageSourceResolvable error = null;
+	private static final DefaultMessageSourceResolvable error= null;
 	/**
 	 * ユーザー情報 Service
 	 */
@@ -63,20 +64,18 @@ public class UserController {
 	 * @param  model Model
 	 * @return  ユーザー情報一覧画面
 	 */
-	@GetMapping("/user/create")
+	@PostMapping("/user/create")
 	public String create(@Validated @ModelAttribute UserRequest userRequest, BindingResult result, 
 			Model model) {
-
 
 		//入力判定入れること
 		if(result.hasErrors()) {
 
 			List<String> errorList = new ArrayList<String>();
-			for (ObjectError error :result.getAllErrors());{
+			for (ObjectError error :result.getAllErrors()){
 				errorList.add(error.getDefaultMessage());
 			}
 			// 入力チェックエラーの場合3行実装
-
 			//エラー判定後の画面遷移2行実装
 			model.addAttribute("validationError",errorList);
 			return"user/add";
@@ -99,4 +98,3 @@ public class UserController {
 
 	}
 }
-
