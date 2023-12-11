@@ -93,7 +93,10 @@ public class UserController {
 	 * @return  ユーザー情報詳細画面
 	 */
 	@GetMapping("/user/{id}")
-	public String displayView(@PathVariable Integer  id, Model model) {
+	public String displayView(@PathVariable Integer  id, Model model) { 
+		UserEntity user = userService.findById(id);
+		model.addAttribute("userData", user);
+
 		return "user/view";
 
 	}
