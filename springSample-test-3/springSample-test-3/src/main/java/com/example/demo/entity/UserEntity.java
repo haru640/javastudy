@@ -14,12 +14,11 @@ import lombok.Data;
 /**
  * ユーザー情報 Entity
  */
-  
-@Entity 
 @Data
+@Entity 
 @Table(name = "user" , schema = "public" )
 
- public class UserEntity  {
+public class UserEntity  {
 
 	/**
 	 * ID
@@ -28,7 +27,7 @@ import lombok.Data;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
-	
+
 	//2行追加
 	/**
 	 * 名前
@@ -47,14 +46,14 @@ import lombok.Data;
 	 */
 	//2行追加
 	@Column(name = "phone")
-    private String phone;
+	private String phone;
 
 	/**
 	 * 更新日時
 	 */
 	//2行追加
 	@Column(name = "update_date")
-    private Date updateDate;
+	private Date updateDate;
 
 	/**
 	 * 登録日時

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -16,46 +17,37 @@ import com.example.demo.repository.UserRepository;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
- public class UserService {
+public class UserService {
 	/**
 	 * ユーザー情報 Repository
 	 */
 	//2行追加
-@Autowired
-private UserRepository userRepository; 
-	
-	 
-public List<UserEntity> searchAll() {
+	@Autowired
+	UserRepository userRepository; 
+
+	public List<UserEntity> searchAll() {
 		//1行追加
-	return userRepository.findAll(); 
-	
-}
+		return userRepository.findAll(); 
+	}
 
-/**
- * ユーザー情報 主キー検索
- * @param
- * @return  検索結果
- */public UserEntity findById(Integer id) {
-	 return null;
+	/**
+	 * ユーザー情報 主キー検索
+	 * @param
+	 * @return  検索結果
+	 */
+	public UserEntity findById(Integer id) {
+		return userRepository.getOne(id);
 		//実装1行
- }
-	
+	}
 
-	
-
-
-    public void create(UserRequest userRequest) {
-	// TODO 自動生成されたメソッド・スタブ
-	Date now = new Date();
-	UserEntity user = new UserEntity();
-	
-	user.setName(userRequest.getName());
-    user.setAddress(userRequest.getAddress());
-    
-	user.setPhone(userRequest.getPhone());
-	user.setCreateDate(now);
-	user.setUpdateDate(now);
-	userRepository.save(user);
+	public void create(UserRequest userRequest) {
+		Date now = new Date();
+		UserEntity user = new UserEntity();
+		user.setName(userRequest.getName());
+		user.setAddress(userRequest.getAddress());
+		user.setPhone(userRequest.getPhone());
+		user.setCreateDate(now);
+		user.setUpdateDate(now);
+		userRepository.save(user);
+	}
 }
-}
-
