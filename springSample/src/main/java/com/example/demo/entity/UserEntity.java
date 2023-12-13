@@ -9,12 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 /**
  * ユーザー情報 Entity
  */
-  @Entity
-  @Table(name = "user")
-   public class UserEntity  {
+@Entity 
+@Data
+@Table(name = "user" , schema = "public" )
+
+public class UserEntity  {
 
 	/**
 	 * ID
@@ -22,8 +26,8 @@ import javax.persistence.Table;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
-	
+	private Integer id;
+
 	//2行追加
 	/**
 	 * 名前
@@ -42,24 +46,18 @@ import javax.persistence.Table;
 	 */
 	//2行追加
 	@Column(name = "phone")
-    private String phone;
+	private String phone;
 
 	/**
 	 * 更新日時
 	 */
 	//2行追加
 	@Column(name = "update_date")
-    private Date updateDate;
+	private Date updateDate;
 
 	/**
 	 * 登録日時
 	 */
 	@Column(name = "create_date")
 	private Date createDate;
-
-	/**
-	 * 削除日時
-	 */
-	@Column(name = "delete_date")
-	private Date deleteDate;
 }
