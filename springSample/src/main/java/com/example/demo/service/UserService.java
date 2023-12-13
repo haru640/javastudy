@@ -63,6 +63,14 @@ public class UserService {
 		 user.setUpdateDate(new Date());
 		 userRepository.save(user);
 		 //実装6行
-
+	 }
+	 /**
+	  * ユーザー情報 物理削除
+	  * @param  id ユーザーID
+	  */
+	 public void delete(Integer id) {
+		 UserEntity user = findById(id);
+		 userRepository.delete(user);
+		 //実装2行}
 	 }
 }
